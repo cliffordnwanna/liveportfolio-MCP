@@ -1,6 +1,14 @@
 # LivePortfolio MCP
 
-Update your [LivePortfolio](https://liveportfolio.site) portfolio from your AI assistant. Tell your assistant about a new certification, job or project and it can add it to your portfolio. Every change is saved as a version you can undo.
+A production Model Context Protocol (MCP) server that lets AI agents (Claude, ChatGPT, Claude Code) read and edit a user's [LivePortfolio](https://liveportfolio.site) portfolio safely. It is a worked example of agent tool design with security built in: OAuth 2.1 with PKCE and per-user consent, assistant tokens accepted only at the MCP endpoint, versioned edits with compare-and-set and undo, and human-in-the-loop approval for risky changes, so an agent never gets unchecked control.
+
+**Engineering highlights**
+- Human-in-the-loop approval for removals, whole-list replacements, batches and new links (out of band: the agent cannot approve for itself)
+- Versioned, undoable edits with optimistic concurrency
+- Prompt-injection stance: user content is data, never instructions
+- 56 tools covering every editable field, each tested end to end, and a documented threat model
+
+[Architecture](docs/architecture.md) · [Security model](docs/security.md) · [Tool reference](docs/tools.md) · [Design decisions](docs/design-decisions.md)
 
 This repository holds the documentation and the registry listing (`server.json`) for the hosted server. The application itself is not open source.
 
