@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.cliffordnwanna/liveportfolio",
+  "title": "LivePortfolio",
+  "description": "Read and edit your LivePortfolio portfolio from your AI assistant. Requires a Pro account.",
+  "repository": {
+    "url": "https://github.com/cliffordnwanna/liveportfolio-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://liveportfolio.site/docs/mcp",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://liveportfolio.site/mcp"
+    }
+  ]
+}
