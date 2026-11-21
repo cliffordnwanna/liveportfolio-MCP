@@ -86,6 +86,6 @@ claude mcp add --transport http liveportfolio https://liveportfolio.site/mcp
 
 Publish your portfolio, change your address or domain, touch billing, change your sign-in, delete anything, or create your first portfolio.
 
-## Support
+## Contact
 
-ecotronics.nterprise@gmail.com. Built by Ecotronics Enterprise, Lagos, Nigeria.
+nwannachumaclifford@gmail.com
