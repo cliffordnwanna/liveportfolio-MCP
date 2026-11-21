@@ -4,7 +4,7 @@
   "title": "LivePortfolio",
   "description": "Read and edit your LivePortfolio portfolio from your AI assistant. Requires a Pro account.",
   "repository": {
-    "url": "https://github.com/cliffordnwanna/liveportfolio-mcp",
+    "url": "https://github.com/cliffordnwanna/liveportfolio-MCP",
     "source": "github"
   },
   "websiteUrl": "https://liveportfolio.site/docs/mcp",
