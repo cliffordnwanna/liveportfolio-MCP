@@ -10,6 +10,33 @@ This repository holds the documentation and the registry listing (`server.json`)
 
 <!-- DEMO VIDEO: 30 to 45 seconds. Link or embed it here once it is posted. -->
 
+## How it works
+
+```mermaid
+flowchart LR
+  A[Assistant client<br/>Claude, ChatGPT, Claude Code] -->|HTTPS + OAuth token| M[MCP endpoint<br/>/mcp]
+  A -. sign-in .-> O[OAuth 2.1 server]
+  O --> C[Consent page<br/>liveportfolio.site]
+  M --> G{Checks on every call:<br/>token, app connection,<br/>access, rate limit}
+  G --> T[Tools]
+  T --> P[Operation layer<br/>validation + limits]
+  P --> V[Versions and history<br/>compare-and-set]
+  V --> D[(Database)]
+  T -->|needs approval| Q[Approval request]
+  Q -. link .-> U[You, on the website]
+  U --> R[Approval page<br/>owner only]
+  R --> P
+  D --> S[Public portfolio site]
+```
+
+## Documentation
+
+- [Architecture](docs/architecture.md): system overview and sequence diagrams for sign-in, a direct edit and an approval-gated edit
+- [Security](docs/security.md): what an assistant can and cannot do, controls, prompt injection, pictures, known limits
+- [Tools](docs/tools.md): all 56 tools grouped by section, with limits and what the public page shows
+- [Design decisions](docs/design-decisions.md): trade-offs, and the known gap after approval
+- [Changelog](CHANGELOG.md)
+
 ## Assistants
 
 Tested: Claude (web and desktop), ChatGPT and Claude Code. Gemini CLI, Cursor and VS Code may work (any client that speaks MCP over HTTP with OAuth) but may need manual setup.
