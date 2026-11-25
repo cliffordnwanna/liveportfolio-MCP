@@ -6,7 +6,7 @@ A production Model Context Protocol (MCP) server that lets AI agents (Claude, Ch
 - Human-in-the-loop approval for removals, whole-list replacements, batches and new links (out of band: the agent cannot approve for itself)
 - Versioned, undoable edits with optimistic concurrency
 - Prompt-injection stance: user content is data, never instructions
-- 56 tools covering every editable field, each tested end to end, and a documented threat model
+- 59 tools covering every editable field, each tested end to end, and a documented threat model
 
 [Architecture](docs/architecture.md) · [Security model](docs/security.md) · [Tool reference](docs/tools.md) · [Design decisions](docs/design-decisions.md)
 
@@ -41,7 +41,7 @@ flowchart LR
 
 - [Architecture](docs/architecture.md): system overview and sequence diagrams for sign-in, a direct edit and an approval-gated edit
 - [Security](docs/security.md): what an assistant can and cannot do, controls, prompt injection, pictures, known limits
-- [Tools](docs/tools.md): all 56 tools grouped by section, with limits and what the public page shows
+- [Tools](docs/tools.md): all 59 tools grouped by section, with limits and what the public page shows
 - [Design decisions](docs/design-decisions.md): trade-offs, and the known gap after approval
 - [Changelog](CHANGELOG.md)
 
@@ -60,13 +60,13 @@ Claude Code:
 claude mcp add --transport http liveportfolio https://liveportfolio.site/mcp
 ```
 
-## What it can do (56 tools)
+## What it can do (59 tools)
 
 - **Read:** the portfolio (by section), the editing rules, designs, a completeness checklist, history, a preview of a change, a health check.
 - **Profile and contact:** name, role, headline, About, location, email, phone, WhatsApp, social links; add to a field or replace one phrase.
 - **Skills:** flat list and groups (add, remove, rename, reorder, replace).
 - **Experience and projects:** roles and highlight lines; projects with stack, links, pictures and an optional Power BI dashboard.
-- **Education, certifications, testimonials:** add, fix one, remove one, reorder, replace.
+- **Education, certifications, awards, testimonials:** add, fix one, remove one, reorder, replace.
 - **Photos and design:** upload link or a public https picture; template, look, Pro design version.
 - **Safety net:** undo, restore an earlier version, and one batch of up to 60 operations for a whole-CV update.
 
@@ -80,7 +80,7 @@ claude mcp add --transport http liveportfolio https://liveportfolio.site/mcp
 
 ## Limits
 
-60 operations per batch, 30 flat skills, 1500 characters per project text field, 120 calls per 10 minutes, 60 edits per hour. The public page shows the first 5 stack items, the first testimonial and, when you have skill groups, the groups rather than the flat list; the assistant is warned when something is saved but not shown.
+60 operations per batch, 30 flat skills, 1500 characters per project text field, 120 calls per 10 minutes, 60 edits per hour. The free designs show every stack item, highlight line, testimonial and award on a computer; on a phone, long lists fold behind a "Show N more" button (nothing is removed). When you have skill groups the page shows the groups rather than the flat list. The assistant can see before it saves whether everything will show, and is warned when something is saved but not shown.
 
 ## It cannot
 
